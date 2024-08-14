@@ -2,7 +2,7 @@
 export default function achivements() {
   return (
     <>
-      <h1> achivements </h1>
+      <h1>  </h1>
     </>
   )
 }
