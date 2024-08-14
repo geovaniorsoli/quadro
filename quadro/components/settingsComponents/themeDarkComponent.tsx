@@ -3,7 +3,6 @@ import { useTheme } from "next-themes"
 export default function themeDark() {
 
 const {theme, setTheme} = useTheme()
-   
     return (
         <>
             <div onClick={ () => setTheme("dark")}>

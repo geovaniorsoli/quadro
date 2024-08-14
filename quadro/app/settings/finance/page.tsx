@@ -1,4 +1,5 @@
 "use client"
+import TitleRoute from "@/components/titleRoute";
 import RouteSettings from "@/components/settingsComponents/routeSettings";
 import {
     Card,
@@ -14,6 +15,7 @@ import { Label } from "@/components/ui/label";
 export default function finance() {
     return (
         <>
+        <TitleRoute title="Configurações > Finaceiro" />
             <div className="flex flex-col items-start justify-start mt-[100px] md:flex-row md:items-start p-4 gap-8">
                 <RouteSettings />
                 <div className="flex items-center justify-center w-[800px]">

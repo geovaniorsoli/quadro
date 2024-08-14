@@ -1,8 +1,9 @@
 "use client"
+import TitleRoute from "@/components/titleRoute"
 export default function home() {
   return (
     <>
-      <h1>  </h1>
+      <TitleRoute title="Home" />
     </>
   )
 }
