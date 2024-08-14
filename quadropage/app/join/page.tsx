@@ -41,7 +41,7 @@ export default function Join() {
                     <TabsContent value="account">
                         <Card>
                             <CardHeader>
-                                <CardTitle>Entrar</CardTitle>
+                                <CardTitle>Olá de volta</CardTitle>
                                 <CardDescription>Acesse o quadro</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-2">
@@ -83,7 +83,7 @@ export default function Join() {
                     <TabsContent value="password">
                         <Card>
                             <CardHeader>
-                                <CardTitle>Cadastrar</CardTitle>
+                                <CardTitle>Seja bem-vindo</CardTitle>
                                 <CardDescription>
                                     Caso seja novo na Quadro crie sua conta
                                 </CardDescription>
