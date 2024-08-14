@@ -102,7 +102,6 @@ export default function Nav() {
                                     Contato
                                 </Link>
                             </Button>
-
                             <Button className="w-full mb-3" onClick={themeMobile} variant="secondary">
                                 Tema
                             </Button>
