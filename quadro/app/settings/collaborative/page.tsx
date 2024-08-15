@@ -1,5 +1,5 @@
 "use client"
-import TitleRoute from "@/components/titleRoute";
+import TitleRoute from "@/components/titleRoute"
 import RouteSettings from "@/components/settingsComponents/routeSettings"
 import {
     Card,
@@ -8,10 +8,8 @@ import {
     CardFooter,
     CardHeader,
     CardTitle
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 export default function collaborative() {
     return (
         <>

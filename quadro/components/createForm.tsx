@@ -26,7 +26,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { useState } from "react"
 export default function finance(
     {
         dialogOpen,
@@ -35,15 +34,6 @@ export default function finance(
         description,
         inputField,
     }: createFormProps) {
-
-    // const [open, setOpen] = useState(false)
-    // const dialogOpen = () => {
-    //     setOpen(true)
-    // }
-    // const [openEdit, setOpenEdit] = useState(false)
-    // const dialogOpenEdit = () => {
-    //     setOpenEdit(true)
-    // }
 
     return (
         <>
