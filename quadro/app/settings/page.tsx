@@ -31,7 +31,7 @@ export default function Settings() {
             <CardContent className="space-y-3">
               <div className="space-y-1">
                 <Label htmlFor="name">Nome</Label>
-                <Input id="name" placeholder="Digite seu nome" />
+                <Input className="w-96" id="name" placeholder="Digite seu nome" />
               </div>
               <div className="space-y-1">
                 <Label>Tema</Label>
