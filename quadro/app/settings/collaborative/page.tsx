@@ -16,7 +16,7 @@ export default function collaborative() {
     return (
         <>
             <TitleRoute title="Configurações > Colaborativo" />
-            <div className="flex flex-col items-start justify-start mt-[100px] md:flex-row md:items-start p-4 gap-8">
+            <div className="flex flex-col items-start justify-start mt-[20px] md:flex-row md:items-start p-4 gap-8">
                 <RouteSettings />
                 <div className="flex items-center justify-center w-[800px]">
                     <Card className="w-full p-6">
