@@ -15,12 +15,12 @@ import { Label } from "@/components/ui/label";
 export default function finance() {
     return (
         <>
-        <TitleRoute title="Configurações > Finaceiro" />
-            <div className="flex flex-col items-start justify-start mt-[20px] md:flex-row md:items-start p-4 gap-8">
+            <TitleRoute title="Configuração > Finaceiro" />
+            <div className="flex flex-col items-center justify-center mt-12 md:flex-row md:items-start p-2 md:p-4">
                 <RouteSettings />
-                <div className="flex items-center justify-center w-[800px]">
-                    <Card className="w-full p-6">
-                        <CardHeader>
+                <div className="flex items-center justify-center w-full md:w-2/3">
+                    <Card className="w-full p-3">
+                    <CardHeader>
                             <CardTitle>Financeiro</CardTitle>
                             <CardDescription>Ajuste todas suas informações financeiras para melhor comodidade.</CardDescription>
                         </CardHeader>
@@ -33,6 +33,7 @@ export default function finance() {
                     </Card>
                 </div>
             </div>
+
         </>
     )
 }

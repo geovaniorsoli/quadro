@@ -18,7 +18,7 @@ const ClientLayout: React.FC<ClientLayoutProps> = ({ children }) => {
     return (
         <div className="flex">
             {shouldRenderSidebar && <Sidebar />}
-            <main className={`p-4 ${shouldRenderSidebar ? 'ml-64' : ''} flex-1`}>
+            <main className={`${shouldRenderSidebar ? 'ml-5' : ''} flex-1`}>
                 {children}
             </main>
         </div>
