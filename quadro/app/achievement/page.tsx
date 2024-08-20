@@ -1,8 +1,9 @@
 "use client"
+import TitleRoute from "@/components/titleRoute"
 export default function achievement() {
   return (
     <>
-      <h1>  </h1>
+      <TitleRoute title="Metas" />
     </>
   )
 }

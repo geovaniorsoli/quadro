@@ -1,4 +1,5 @@
 "use client"
+import TitleRoute from "@/components/titleRoute"
 import RouteSettings from "@/components/settingsComponents/routeSettings"
 import {
     Card,
@@ -7,23 +8,21 @@ import {
     CardFooter,
     CardHeader,
     CardTitle
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 export default function collaborative() {
     return (
         <>
-            <div className="flex flex-col items-start justify-start mt-[100px] md:flex-row md:items-start p-4 gap-8">
+            <TitleRoute title="Configuração > Colaborativo" />
+            <div className="flex flex-col items-center justify-center mt-12 md:flex-row md:items-start p-2 md:p-4">
                 <RouteSettings />
-                <div className="flex items-center justify-center w-[800px]">
-                    <Card className="w-full p-6">
+                <div className="flex items-center justify-center w-full md:w-2/3">
+                    <Card className="w-full p-3">
                         <CardHeader>
-                            <CardTitle>Ambiente colaborativo</CardTitle>
-                            <CardDescription>Configure um só lugar para todos usar</CardDescription>
+                            <CardTitle>Ambiente Colaborativo</CardTitle>
+                            <CardDescription>Várias pessoas um só lugar.</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
-
                         </CardContent>
                         <CardFooter className="flex items-center justify-end">
                             <Button>Atualizar</Button>
