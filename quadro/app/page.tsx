@@ -24,47 +24,54 @@ export default function index() {
   }
   return (
     <>
-      <TitleRoute title="Home" />
-      <Card>
-        <CardHeader>
-          <CardTitle>Olá de volta</CardTitle>
-          <CardDescription>Acesse o quadro</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-2">
-          <div className="space-y-1">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" placeholder="Email qual usou para se cadastrar" />
-          </div>
-          <div className="space-y-1 relative">
-            <Label htmlFor="password">Senha</Label>
-          </div>
-          <div className="relative">
-            <Input
-              type={isVisible ? "text" : "password"}
-              id="password"
-              placeholder="Sua senha"
-              className="pr-10"
-            />
-            <div
-              onClick={toggleVisibility}
-              className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
-            >
-              {isVisible ? (
-                <lucide.EyeOff className="w-5 h-5 text-gray-500" />
-              ) : (
-                <lucide.Eye className="w-5 h-5 text-gray-500" />
-              )}
+      <TitleRoute title="Logar-se" />
+      <div className="flex align-center justify-center">
+        <Card className="w-[500px]">
+          <CardHeader>
+            <CardTitle>Olá de volta</CardTitle>
+            <CardDescription>Acesse o quadro</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" placeholder="Email qual usou para se cadastrar" />
             </div>
-          </div>
-        </CardContent>
+            <div className="space-y-1 relative">
+              <Label htmlFor="password">Senha</Label>
+            </div>
+            <div className="relative">
+              <Input
+                type={isVisible ? "text" : "password"}
+                id="password"
+                placeholder="Sua senha"
+                className="pr-10"
+              />
+              <div
+                onClick={toggleVisibility}
+                className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+              >
+                {isVisible ? (
+                  <lucide.EyeOff className="w-5 h-5 text-gray-500" />
+                ) : (
+                  <lucide.Eye className="w-5 h-5 text-gray-500" />
+                )}
+              </div>
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Link className="text-sm text-muted-foreground" href="/"> Esqueceu sua senha?</Link>
+          </CardFooter>
+          <CardFooter>
+            <Button asChild className="w-full">
+              <Link href={"/home"}>
+                Entrar
+              </Link>
 
-        <CardFooter>
-          <Link className="text-sm text-muted-foreground" href="/"> Esqueceu sua senha?</Link>
-        </CardFooter>
-        <CardFooter>
-          <Button className="w-full">Entrar</Button>
-        </CardFooter>
-      </Card>
+            </Button>
+
+          </CardFooter>
+        </Card>
+      </div>
     </>
   )
 }
