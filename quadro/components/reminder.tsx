@@ -20,6 +20,8 @@ interface reminderProps {
     content: string,
     price: number,
     date: string,
+    editOnClick: () => void,
+    deleteOnClick: () => void,
 }
 
 const currentDate = new Date()
@@ -35,23 +37,9 @@ export default function Reminder({ reminders }: { reminders: reminderProps[] }) 
                 return (
                     <Alert className="mt-2 mb-2" variant={isLate ? "default" : "destructive"} key={index}>
                         <div className="flex items-center justify-content gap-2">
-
-
-
-
-
-                            <Popover>
-                                <PopoverTrigger>
-                                    <Button variant={isLate ? "secondary" : "destructive"} size="icon">
-                                        <lucide.Bell className="h-4 w-4" />
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="grid">
-                                    <Button variant="ghost"> Editar </Button>
-                                    <Button variant="ghost"> Apagar </Button>
-                                </PopoverContent>
-                            </Popover>
-
+                            <Button onClick={item.editOnClick} variant={isLate ? "secondary" : "destructive"} size="icon">
+                                <lucide.Bell className="h-4 w-4" />
+                            </Button>
                             <AlertTitle>Lembrete</AlertTitle>
                         </div>
                         <AlertDescription>
