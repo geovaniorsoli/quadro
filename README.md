@@ -6,7 +6,7 @@ O Sistema de Gerenciamento de Finanças é uma aplicação desenvolvida como par
 
 ## Funcionalidades
 
-- **Gerenciamento de Finanças**: Permite que os usuários adicionem, editem e excluam transações financeiras, categorizando-as para facilitar o controle.
+- **Gerenciamento de Finanças**: Permite que os usuários adicionem, editem e excluam transações financeiras, categorizando-as para facilitar o controle e análise.
 - **Colaboração em Equipe**: Usuários podem criar e gerenciar equipes, compartilhando o acesso às finanças e permitindo que vários membros contribuam para o gerenciamento conjunto.
 - **Dashboards Interativos**: Visualize gráficos e resumos financeiros que ajudam a entender a situação financeira de maneira clara e rápida.
 - **Relatórios Personalizados**: Geração de relatórios personalizados com base em diferentes critérios, como data, categoria e valor.
