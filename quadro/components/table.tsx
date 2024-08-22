@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import * as lucide from "lucide-react"
+import CreateStatementForm from "./createStatement"
 
 interface DataTable {
   id: number
@@ -34,9 +35,13 @@ interface DataTableProps {
 }
 
 export default function DataTable({ data }: DataTableProps) {
+
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(6)
+  const [openCreate, setOpenCreate] = useState(false)
+  const [openDialog, setDialogOpen] = useState(false)
+  const [openPopOver, setPopOver] = useState(false)
 
   type SortKey = keyof DataTable
 
@@ -83,17 +88,24 @@ export default function DataTable({ data }: DataTableProps) {
   }
 
   const handlePageChange = (newPage: number) => setPage(newPage)
-
   return (
     <>
+      <CreateStatementForm
+        openDialog={openDialog}
+        setDialogOpen={setDialogOpen}
+        openPopOver={openPopOver}
+        setPopOver={setPopOver}
+      />
+
       <div className="flex items-center justify-center">
         <div className="w-[900px]">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between gap-3 mb-4">
             <Input
               placeholder="Pesquisar..."
               value={search}
               onChange={handleSearch}
             />
+            <Button onClick={() => setDialogOpen(true)}> Cadastrar </Button>
           </div>
           <div className="border rounded-lg overflow-auto">
             <Table>
