@@ -1,0 +1,29 @@
+# Diretórios do Maven
+target/
+.mvn/
+
+# Arquivos de configuração do Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+
+# Arquivos de log
+*.log
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração do IDE
+.idea/
+*.iml
+*.class
+
+# Dependências baixadas
+*.jar
+*.war
+
+# Diretórios de build
+build/
+out/
