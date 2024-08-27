@@ -1,7 +1,7 @@
-package routers;
+package com.quadroapi.routers;
 
 import com.sun.net.httpserver.HttpServer;
-import controllers.PingController;
+import com.quadroapi.controllers.PingController;
 
 public class PingRouter {
   public static void initialize(HttpServer server) {

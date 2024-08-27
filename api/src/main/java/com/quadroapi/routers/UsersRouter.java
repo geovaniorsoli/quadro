@@ -1,9 +1,9 @@
-package routers;
+package com.quadroapi.routers;
 
 import com.sun.net.httpserver.HttpServer;
 
-import controllers.UsersController;
-import services.UsersService;
+import com.quadroapi.controllers.UsersController;
+import com.quadroapi.services.UsersService;
 
 public class UsersRouter {
   public static void initialize(HttpServer server) {

@@ -1,6 +1,6 @@
-package services;
+package com.quadroapi.services;
 
-import models.User;
+import com.quadroapi.models.User;
 
 public class UsersService {
   public User[] listAllUsers() {

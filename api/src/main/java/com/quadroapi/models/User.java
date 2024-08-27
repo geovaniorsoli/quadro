@@ -1,4 +1,4 @@
-package models;
+package com.quadroapi.models;
 
 public class User {
   private int id;

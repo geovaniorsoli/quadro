@@ -1,4 +1,4 @@
-package controllers;
+package com.quadroapi.controllers;
 
 import java.io.IOException;
 import com.sun.net.httpserver.HttpExchange;
