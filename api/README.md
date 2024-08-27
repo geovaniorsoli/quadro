@@ -1,18 +1,27 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This guide will help you get started with this project.
 
-## Folder Structure
+### Requirements
 
-The workspace contains two folders by default, where:
+- JDK (Java Development Kit)
+- Maven (Build Automation Tool)
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+### Steps
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+1. **Navigate to the Project Directory**
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+   Ensure you are in the root directory of the project where the `pom.xml` file is located.
 
-## Dependency Management
+2. **Compile the Project**
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+   Run the following command to compile the project:
+
+   ```bash
+   mvn compile
+
+
+3. **To run the application, use:**
+    ```bash
+      mvn exec:java -Dexec.mainClass="com.quadroapi"
+    ```
