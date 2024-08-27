@@ -28,6 +28,18 @@ import {
 } from "@/components/ui/popover"
 import { useState } from "react"
 
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
 interface InputField {
     label: string
     placeholder: string
@@ -101,7 +113,7 @@ export default function FinanceForm({
                                             <CommandItem
                                                 key={item.value}
                                                 value={item.value}
-                                                onSelect={(currentValue:any) => {
+                                                onSelect={(currentValue: any) => {
                                                     setValue(currentValue === value ? null : currentValue)
                                                     setPopoverOpen(false)
                                                 }}
@@ -132,9 +144,32 @@ export default function FinanceForm({
                 <DialogFooter>
                     <div className="grid w-full gap-2">
                         <Button className="w-full">Atualizar</Button>
-                        <Button variant="destructive" className="w-full">
-                            Deletar
-                        </Button>
+
+                        <AlertDialog>
+                            <AlertDialogTrigger asChild>
+                                <Button variant="destructive" className="w-full">
+                                    Deletar
+                                </Button>
+                            </AlertDialogTrigger>
+                            <AlertDialogContent >
+                                <AlertDialogHeader>
+                                    <AlertDialogTitle>Deseja excluir esse item?</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                        Ao deletar esse item ele nao fará mais parte do seu conteúdo.
+                                    </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                    <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                                    <AlertDialogAction onClick={() => {
+                                        console.log("Item deletado")
+                                        setDialogOpen(false)
+                                    }}>
+                                        Deletar
+                                    </AlertDialogAction>
+                                </AlertDialogFooter>
+                            </AlertDialogContent>
+                        </AlertDialog>
+
                         <Button variant="secondary" className="w-full" onClick={() => setDialogOpen(false)}>
                             Fechar
                         </Button>
