@@ -27,18 +27,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { useState } from "react"
-
-import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+import AlertDeleteConfirm from "./alertConfirmDelete"
 
 interface InputField {
     label: string
@@ -79,103 +68,87 @@ export default function FinanceForm({
     selectArray,
 }: CreateFormProps) {
     const [value, setValue] = useState<string | null>(null)
+    const [alertConfirmDelete, setAlertConfirmDelete] = useState(false)
 
     return (
-        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-            <DialogContent>
-                <DialogHeader>
-                    <DialogTitle>{title}</DialogTitle>
-                    <DialogDescription>{description}</DialogDescription>
-                </DialogHeader>
-                <div className="space-y-4">
-                    <Label>{labelSelect}</Label>
-                    <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
-                        <PopoverTrigger asChild>
-                            <Button
-                                variant="outline"
-                                role="combobox"
-                                aria-expanded={popoverOpen}
-                                className="w-full justify-between"
-                            >
-                                {value
-                                    ? selectArray.find((item) => item.value === value)?.selectLabel
-                                    : "Selecione..."}
-                                <lucide.ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                            </Button>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-[500px] p-0">
-                            <Command>
-                                <CommandInput placeholder="Pesquisar..." />
-                                <CommandList>
-                                    <CommandEmpty>Nenhum item encontrado.</CommandEmpty>
-                                    <CommandGroup>
-                                        {selectArray.map((item) => (
-                                            <CommandItem
-                                                key={item.value}
-                                                value={item.value}
-                                                onSelect={(currentValue: any) => {
-                                                    setValue(currentValue === value ? null : currentValue)
-                                                    setPopoverOpen(false)
-                                                }}
-                                            >
-                                                <lucide.Check
-                                                    className={cn(
-                                                        "mr-2 h-4 w-4",
-                                                        value === item.value ? "opacity-100" : "opacity-0"
-                                                    )}
-                                                />
-                                                {item.selectLabel}
-                                            </CommandItem>
-                                        ))}
-                                    </CommandGroup>
-                                </CommandList>
-                            </Command>
-                        </PopoverContent>
-                    </Popover>
-                </div>
-                <div className="space-y-4">
-                    {inputFields.map((field, index) => (
-                        <div key={index} className="space-y-4">
-                            <Label htmlFor={field.id}>{field.label}</Label>
-                            <Input id={field.id} type={field.type} placeholder={field.placeholder} />
-                        </div>
-                    ))}
-                </div>
-                <DialogFooter>
-                    <div className="grid w-full gap-2">
-                        <Button className="w-full">Atualizar</Button>
+        <>
+            <AlertDeleteConfirm
+                title="Deseja deletar esse Elemento"
+                description="Ao deletar esse elemento ele sumirá pra sempre"
+                open={alertConfirmDelete}
+                onOpenChange={setAlertConfirmDelete}
+                onDelete={() => console.log("Clique")}
+            />
 
-                        <AlertDialog>
-                            <AlertDialogTrigger asChild>
-                                <Button variant="destructive" className="w-full">
-                                    Deletar
+            <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogTitle>{title}</DialogTitle>
+                        <DialogDescription>{description}</DialogDescription>
+                    </DialogHeader>
+                    <div className="space-y-4">
+                        <Label>{labelSelect}</Label>
+                        <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
+                            <PopoverTrigger asChild>
+                                <Button
+                                    variant="outline"
+                                    role="combobox"
+                                    aria-expanded={popoverOpen}
+                                    className="w-full justify-between"
+                                >
+                                    {value
+                                        ? selectArray.find((item) => item.value === value)?.selectLabel
+                                        : "Selecione..."}
+                                    <lucide.ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                 </Button>
-                            </AlertDialogTrigger>
-                            <AlertDialogContent >
-                                <AlertDialogHeader>
-                                    <AlertDialogTitle>Deseja excluir esse item?</AlertDialogTitle>
-                                    <AlertDialogDescription>
-                                        Ao deletar esse item ele nao fará mais parte do seu conteúdo.
-                                    </AlertDialogDescription>
-                                </AlertDialogHeader>
-                                <AlertDialogFooter>
-                                    <AlertDialogCancel>Cancelar</AlertDialogCancel>
-                                    <AlertDialogAction onClick={() => {
-                                        console.log("Item deletado")
-                                        setDialogOpen(false)
-                                    }}>
-                                        Deletar
-                                    </AlertDialogAction>
-                                </AlertDialogFooter>
-                            </AlertDialogContent>
-                        </AlertDialog>
-
-                        <Button variant="secondary" className="w-full" onClick={() => setDialogOpen(false)}>
-                            Fechar
-                        </Button>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-[500px] p-0">
+                                <Command>
+                                    <CommandInput placeholder="Pesquisar..." />
+                                    <CommandList>
+                                        <CommandEmpty>Nenhum item encontrado.</CommandEmpty>
+                                        <CommandGroup>
+                                            {selectArray.map((item) => (
+                                                <CommandItem
+                                                    key={item.value}
+                                                    value={item.value}
+                                                    onSelect={(currentValue: any) => {
+                                                        setValue(currentValue === value ? null : currentValue)
+                                                        setPopoverOpen(false)
+                                                    }}
+                                                >
+                                                    <lucide.Check
+                                                        className={cn(
+                                                            "mr-2 h-4 w-4",
+                                                            value === item.value ? "opacity-100" : "opacity-0"
+                                                        )} />
+                                                    {item.selectLabel}
+                                                </CommandItem>
+                                            ))}
+                                        </CommandGroup>
+                                    </CommandList>
+                                </Command>
+                            </PopoverContent>
+                        </Popover>
                     </div>
-                </DialogFooter>
-            </DialogContent>
-        </Dialog>
+                    <div className="space-y-4">
+                        {inputFields.map((field, index) => (
+                            <div key={index} className="space-y-4">
+                                <Label htmlFor={field.id}>{field.label}</Label>
+                                <Input id={field.id} type={field.type} placeholder={field.placeholder} />
+                            </div>
+                        ))}
+                    </div>
+                    <DialogFooter>
+                        <div className="grid w-full gap-2">
+                            <Button className="w-full">Atualizar</Button>
+                            <Button variant="destructive" onClick={() => setAlertConfirmDelete(true)}>Deletar</Button>
+                            <Button variant="secondary" className="w-full" onClick={() => setDialogOpen(false)}>
+                                Fechar
+                            </Button>
+                        </div>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog></>
     )
 }
