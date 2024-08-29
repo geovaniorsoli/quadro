@@ -28,7 +28,7 @@ interface DataTable {
   description: string
   value: number
   data: string
-}
+} 
 
 interface DataTableProps {
   data: DataTable[]
