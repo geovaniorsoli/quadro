@@ -27,7 +27,7 @@ export default function Join() {
     const [confirmarSenha, setConfirmarSenha] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [success, setSuccess] = useState(false); // Novo estado para mensagem de sucesso
+    const [success, setSuccess] = useState(false);
 
     const toggleVisibility = () => {
         setIsVisible((prev) => !prev);
@@ -88,11 +88,10 @@ export default function Join() {
                 return;
             }
 
-            // Exibir mensagem de sucesso
             setSuccess(true);
             setError("");
             setTimeout(() => {
-                router.push("/home")
+                router.push("/")
             }, 2000)
 
             const data = await response.json();
