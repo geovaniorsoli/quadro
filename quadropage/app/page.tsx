@@ -8,7 +8,7 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
- 
+
 export default function home() {
   return (
     <>
