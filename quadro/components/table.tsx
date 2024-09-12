@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, type SetStateAction } from "react"
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -19,7 +19,8 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import * as lucide from "lucide-react"
-import CreateStatementForm from "./createStatement"
+import CreateStatementForm from "./createFormStatement"
+import EditFormStatement from "./editFormStatement"
 
 interface DataTable {
   id: number
@@ -28,7 +29,7 @@ interface DataTable {
   description: string
   value: number
   data: string
-} 
+}
 
 interface DataTableProps {
   data: DataTable[]
@@ -39,8 +40,8 @@ export default function DataTable({ data }: DataTableProps) {
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(6)
-  const [openCreate, setOpenCreate] = useState(false)
   const [openDialog, setDialogOpen] = useState(false)
+  const [openEditDialog, setOpenDialog] = useState(false)
   const [openPopOver, setPopOver] = useState(false)
 
   type SortKey = keyof DataTable
@@ -97,6 +98,11 @@ export default function DataTable({ data }: DataTableProps) {
         setPopOver={setPopOver}
       />
 
+      <EditFormStatement
+        openDialog={openEditDialog}
+        setDialogOpen={setOpenDialog}
+      />
+
       <div className="flex items-center justify-center">
         <div className="w-[900px]">
           <div className="flex items-center justify-between gap-3 mb-4">
@@ -135,7 +141,7 @@ export default function DataTable({ data }: DataTableProps) {
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuItem>Editar</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => setOpenDialog(true)}>Editar</DropdownMenuItem>
                           <DropdownMenuItem>Excluir</DropdownMenuItem>
                           <DropdownMenuItem>Copiar</DropdownMenuItem>
                         </DropdownMenuContent>

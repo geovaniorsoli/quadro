@@ -9,27 +9,17 @@ import {
     CardHeader,
     CardTitle
 } from "@/components/ui/card"
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogFooter,
-} from "@/components/ui/dialog"
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion"
+
+import FixedPay from "@/components/settingsComponents/fixedForm"
+import EditFixedForm from "@/components/settingsComponents/editFixedForm"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useState } from "react"
+import { Popover } from "@radix-ui/react-popover"
 export default function finance() {
-
+    const [popOver, setPopOver] = useState(false)
     const [open, setOpen] = useState(false)
     const dialogOpen = () => {
         setOpen(true)
@@ -120,67 +110,17 @@ export default function finance() {
                                     <Button className="mr-3" onClick={dialogOpen} variant="secondary"> Cadastrar saídas fixas</Button>
                                     <Button onClick={dialogOpenEdit} variant="secondary"> Ajustar saídas fixas</Button>
                                 </div>
-                                <Dialog open={open} onOpenChange={setOpen}>
-                                    <DialogContent>
-                                        <DialogHeader>
-                                            <DialogTitle>Cadastro de saídas fixas</DialogTitle>
-                                            <DialogDescription>
-                                                São suas despesas fixas
-                                            </DialogDescription>
-                                        </DialogHeader>
-                                        <div className="space-y-4">
-                                            <Label>Titulo</Label>
-                                            <Input type="text" placeholder="Titulo" />
-                                        </div>
-                                        <div className="space-y-4">
-                                            <Label>Valor</Label>
-                                            <Input type="number" placeholder="Valor" />
-                                        </div>
-                                        <div className="space-y-4">
-                                            <Label>Periodo</Label>
-                                            <Input type="date" placeholder="Periodo" />
-                                        </div>
-                                        <DialogFooter >
-                                            <div className="grid w-full gap-2">
-                                                <Button className="w-full"> Cadastrar </Button>
-                                                <Button variant="secondary" className="w-full" onClick={() => setOpen(false)}> Fechar </Button>
-                                            </div>
-                                        </DialogFooter>
-                                    </DialogContent>
-                                </Dialog>
-                                <Dialog open={openEdit} onOpenChange={setOpenEdit}>
-                                    <DialogContent>
-                                        <DialogHeader>
-                                            <DialogTitle>Edição de saídas fixas</DialogTitle>
-                                            <DialogDescription>
-                                                Ajuste suas despesas fixas
-                                            </DialogDescription>
-                                        </DialogHeader>
-                                        <div className="space-y-4">
-                                            <Label>Titulo</Label>
-                                            <Input type="text" placeholder="Titulo" />
-                                        </div>
-                                        <div className="space-y-4">
-                                            <Label>Titulo</Label>
-                                            <Input type="text" placeholder="Titulo" />
-                                        </div>
-                                        <div className="space-y-4">
-                                            <Label>Valor</Label>
-                                            <Input type="number" placeholder="Valor" />
-                                        </div>
-                                        <div className="space-y-4">
-                                            <Label>Periodo</Label>
-                                            <Input type="date" placeholder="Periodo" />
-                                        </div>
-                                        <DialogFooter>
-                                            <div className="grid w-full gap-2">
-                                                <Button className="w-full"> Atualizar </Button>
-                                                <Button variant="destructive" className="w-full"> Deletar </Button>
-                                                <Button variant="secondary" className="w-full" onClick={() => setOpenEdit(false)}> Fechar </Button>
-                                            </div>
-                                        </DialogFooter>
-                                    </DialogContent>
-                                </Dialog>
+                                <FixedPay
+                                    openDialog={open}
+                                    setDialogOpen={setOpen}
+                                />
+
+                                    {/* passar props de comboBox  */}
+                                {/* <EditFixedForm
+                                    openDialog={openEdit}
+                                    setDialogOpen={setOpenEdit}
+                                    
+                                /> */}
                             </div>
                         </CardContent>
                         <CardFooter className="flex items-center justify-end">

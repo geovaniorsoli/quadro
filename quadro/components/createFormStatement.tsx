@@ -63,7 +63,7 @@ export default function createStatementForm({ openDialog, setDialogOpen, openPop
           <DialogFooter >
             <div className="grid w-full gap-2">
               <Button className="w-full"> Cadastrar </Button>
-              <Button variant="secondary" className="w-full"> Fechar </Button>
+              <Button variant="secondary" onClick={() => setDialogOpen(false)} className="w-full"> Fechar </Button>
             </div>
           </DialogFooter>
         </DialogContent>

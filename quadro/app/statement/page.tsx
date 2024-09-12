@@ -50,7 +50,7 @@ export default function Statement() {
         />
       </div>
 
-      <DataTable data={data} />
+    <DataTable data={data} />
     </>
   )
 }
