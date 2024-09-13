@@ -21,6 +21,7 @@ import { Badge } from "@/components/ui/badge"
 import * as lucide from "lucide-react"
 import CreateStatementForm from "./createFormStatement"
 import EditFormStatement from "./editFormStatement"
+import AlertDeleteConfirm from "./alertConfirmDelete"
 
 interface DataTable {
   id: number
@@ -43,6 +44,7 @@ export default function DataTable({ data }: DataTableProps) {
   const [openDialog, setDialogOpen] = useState(false)
   const [openEditDialog, setOpenDialog] = useState(false)
   const [openPopOver, setPopOver] = useState(false)
+  const [alertDelet, setAlertDelet] = useState(false)
 
   type SortKey = keyof DataTable
 
@@ -103,6 +105,14 @@ export default function DataTable({ data }: DataTableProps) {
         setDialogOpen={setOpenDialog}
       />
 
+      <AlertDeleteConfirm
+        title="Deseja deletar esse dado?"
+        description="esse dado irá ser deletado permanentemente"
+        onOpenChange={setAlertDelet} 
+        open={alertDelet}
+        onDelete={() => console.log("deletado")}
+      />
+
       <div className="flex items-center justify-center">
         <div className="w-[900px]">
           <div className="flex items-center justify-between gap-3 mb-4">
@@ -142,7 +152,7 @@ export default function DataTable({ data }: DataTableProps) {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuItem onClick={() => setOpenDialog(true)}>Editar</DropdownMenuItem>
-                          <DropdownMenuItem>Excluir</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => setAlertDelet(true)}>Excluir</DropdownMenuItem>
                           <DropdownMenuItem>Copiar</DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
