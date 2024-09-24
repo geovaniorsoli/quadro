@@ -30,6 +30,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
+import AlertDeleteConfirm from "@/components/alertConfirmDelete"
+
 interface Saidas {
   value: string
   label: string
@@ -38,9 +40,9 @@ interface Saidas {
 interface EditFixedFormProps {
   openDialog: boolean,
   setDialogOpen: Dispatch<SetStateAction<boolean>>,
-  Saidas: Saidas[], 
-  selectedSaidas: string, 
-  setSelectedSaidas: Dispatch<SetStateAction<string>>, 
+  Saidas: Saidas[],
+  selectedSaidas: string,
+  setSelectedSaidas: Dispatch<SetStateAction<string>>,
 }
 
 export default function EditFixedForm({
@@ -51,9 +53,44 @@ export default function EditFixedForm({
   setSelectedSaidas,
 }: EditFixedFormProps) {
   const [open, setOpen] = useState(false)
+  const [title, setTitle] = useState("")
+  const [value, setValue] = useState("")
+  const [period, setPeriod] = useState("")
+
+  const handleSubmit = () => {
+    if (!selectedSaidas || !title || !value || !period) {
+      alert("Todos os campos são obrigatórios.");
+      return;
+    }
+
+    console.log({
+      selectedSaidas,
+      title,
+      value,
+      period
+    });
+
+    setSelectedSaidas("")
+    setTitle("")
+    setValue("")
+    setPeriod("")
+    setDialogOpen(false)
+  }
+
+  const handleAdjustFixedSaidas = () => {
+    console.log("Ajustando Saídas Fixas");
+  }
+  const [alertConfirmDelete, setAlertConfirmDelete] = useState(false)
 
   return (
     <>
+      <AlertDeleteConfirm
+        title="Deseja deletar esse Elemento"
+        description="Ao deletar esse elemento ele sumirá pra sempre"
+        open={alertConfirmDelete}
+        onOpenChange={setAlertConfirmDelete}
+        onDelete={() => console.log("Clique")}
+      />
       <Dialog open={openDialog} onOpenChange={setDialogOpen}>
         <DialogContent>
           <DialogHeader>
@@ -72,31 +109,32 @@ export default function EditFixedForm({
                   className="w-[200px] justify-between"
                 >
                   {selectedSaidas
-                    ? Saidas.find((Saidas) => Saidas.value === selectedSaidas)?.label
-                    : "Selecionar Saidas..."}
+                    ? Saidas.find((saida) => saida.value === selectedSaidas)?.label
+                    : "Selecionar Saídas..."}
                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-[200px] p-0">
                 <Command>
-                  <CommandInput placeholder="Procurar Saidas..." />
+                  <CommandInput placeholder="Procurar Saídas..." />
                   <CommandList>
                     <CommandEmpty>Nenhuma saída encontrada.</CommandEmpty>
                     <CommandGroup>
-                      {Saidas.map((Saidas) => (
+                      {Saidas.map((saida) => (
                         <CommandItem
-                          onSelect={(currentValue) => {
-                            setSelectedSaidas(currentValue === selectedSaidas ? "" : currentValue)
+                          key={saida.value}
+                          onSelect={() => {
+                            setSelectedSaidas(saida.value)
                             setOpen(false)
                           }}
                         >
                           <Check
                             className={cn(
                               "mr-2 h-4 w-4",
-                              selectedSaidas === Saidas.value ? "opacity-100" : "opacity-0"
+                              selectedSaidas === saida.value ? "opacity-100" : "opacity-0"
                             )}
                           />
-                          {Saidas.label}
+                          {saida.label}
                         </CommandItem>
                       ))}
                     </CommandGroup>
@@ -107,25 +145,41 @@ export default function EditFixedForm({
           </div>
           <div className="space-y-4">
             <Label>Título</Label>
-            <Input type="text" placeholder="Título da saída fixa" />
+            <Input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Título da saída fixa"
+            />
           </div>
           <div className="space-y-4">
             <Label>Valor</Label>
-            <Input type="number" placeholder="Valor da saída" />
+            <Input
+              type="number"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              placeholder="Valor da saída"
+            />
           </div>
           <div className="space-y-4">
             <Label>Período</Label>
-            <Input type="number" placeholder="Período em dias" />
+            <Input
+              type="number"
+              value={period}
+              onChange={(e) => setPeriod(e.target.value)}
+              placeholder="Período em dias"
+            />
           </div>
           <DialogFooter>
             <div className="grid w-full gap-2">
-              <Button className="w-full">Cadastrar</Button>
-              <Button variant="destructive" className="w-full">Deletar</Button>
+              <Button className="w-full" onClick={handleAdjustFixedSaidas}>Ajustar Saídas Fixas</Button>
+              <Button variant="destructive" className="w-full" onClick={() => setAlertConfirmDelete(true)}>Deletar</Button>
               <Button onClick={() => setDialogOpen(false)} variant="secondary" className="w-full">Fechar</Button>
             </div>
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
     </>
   )
 }
