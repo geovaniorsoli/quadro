@@ -39,8 +39,8 @@ interface EditFixedFormProps {
   openDialog: boolean,
   setDialogOpen: Dispatch<SetStateAction<boolean>>,
   Saidas: Saidas[], 
-  selectedSaidas: string, 
-  setSelectedSaidas: Dispatch<SetStateAction<string>>, 
+  selectedSaidas?: string, 
+  setSelectedSaidas?: Dispatch<SetStateAction<string>>, 
 }
 
 export default function EditFixedForm({
@@ -69,7 +69,7 @@ export default function EditFixedForm({
                   variant="outline"
                   role="combobox"
                   aria-expanded={open}
-                  className="w-[200px] justify-between"
+                  className="w-full justify-between"
                 >
                   {selectedSaidas
                     ? Saidas.find((Saidas) => Saidas.value === selectedSaidas)?.label
@@ -77,7 +77,7 @@ export default function EditFixedForm({
                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-[200px] p-0">
+              <PopoverContent className="w-[450px] p-0">
                 <Command>
                   <CommandInput placeholder="Procurar Saidas..." />
                   <CommandList>

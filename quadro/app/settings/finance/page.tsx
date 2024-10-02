@@ -29,55 +29,12 @@ export default function finance() {
         setOpenEdit(true)
     }
 
-    const text = [
-        {
-            saidas: "Netflix R$34,90",
-        },
-        {
-            saidas: "Spotify R$19,90",
-        },
-        {
-            saidas: "Seguro do carro R$400,00",
-        },
-        {
-            saidas: "Faculdade R$1.200,00",
-        },
-        {
-            saidas: "Academia R$150,00",
-        },
-        {
-            saidas: "Plano de saúde R$500,00",
-        },
-        {
-            saidas: "Internet R$120,00",
-        },
-        {
-            saidas: "Celular R$80,00",
-        },
-        {
-            saidas: "Aluguel R$2.000,00",
-        },
-        {
-            saidas: "Condomínio R$600,00",
-        },
-        {
-            saidas: "Luz R$200,00",
-        },
-        {
-            saidas: "Água R$100,00",
-        },
-        {
-            saidas: "Gasolina R$300,00",
-        },
-        {
-            saidas: "Supermercado R$800,00",
-        },
-        {
-            saidas: "Outras assinaturas R$50,00",
-        },
-    ];
-
-
+const saidas = [
+    {
+        label: "carro",
+        value: "500"
+    }
+]
 
 
     return (
@@ -98,10 +55,10 @@ export default function finance() {
                                 <p className="text-sm">Saídas fixas</p>
                                 <p className="text-sm text-muted-foreground"> Suas despesas que tem valor fixo</p>
                                 <ScrollArea className="h-[200px] w-[380px] rounded-md border p-4">
-                                    {text.map((item, index) => (
+                                    {saidas.map((item, index) => (
                                         <ul>
                                             <li key={index}>
-                                                {item.saidas}
+                                                {item.label} {item.value}
                                             </li>
                                         </ul>
                                     ))}
@@ -115,12 +72,11 @@ export default function finance() {
                                     setDialogOpen={setOpen}
                                 />
 
-                                    {/* passar props de comboBox  */}
-                                {/* <EditFixedForm
+                                <EditFixedForm
                                     openDialog={openEdit}
                                     setDialogOpen={setOpenEdit}
-                                    
-                                /> */}
+                                    Saidas={saidas}
+                                />
                             </div>
                         </CardContent>
                         <CardFooter className="flex items-center justify-end">
