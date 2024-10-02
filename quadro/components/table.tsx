@@ -22,7 +22,7 @@ import * as lucide from "lucide-react"
 import CreateStatementForm from "./createFormStatement"
 import EditFormStatement from "./editFormStatement"
 import AlertDeleteConfirm from "./alertConfirmDelete"
-
+import sty from "@/public/styles/table.module.css"
 interface DataTable {
   id: number
   tag: string
@@ -108,42 +108,80 @@ export default function DataTable({ data }: DataTableProps) {
       <AlertDeleteConfirm
         title="Deseja deletar esse dado?"
         description="esse dado irá ser deletado permanentemente"
-        onOpenChange={setAlertDelet} 
+        onOpenChange={setAlertDelet}
         open={alertDelet}
         onDelete={() => console.log("deletado")}
       />
 
       <div className="flex items-center justify-center">
-        <div className="w-[900px]">
-          <div className="flex items-center justify-between gap-3 mb-4">
+        <div className="w-full max-w-[900px]">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 mb-4">
             <Input
               placeholder="Pesquisar..."
               value={search}
               onChange={handleSearch}
+              className="w-full md:w-auto"
             />
-            <Button onClick={() => setDialogOpen(true)}> Cadastrar </Button>
+            <Button className="w-full md:w-auto" onClick={() => setDialogOpen(true)}>Cadastrar</Button>
           </div>
           <div className="border rounded-lg overflow-auto">
-            <Table>
-              <TableHeader>
+            <Table className="min-w-full">
+              <TableHeader className="hidden md:table-header-group">
                 <TableRow>
-                  <TableHead><Button variant="ghost" onClick={() => handleSort("id")}>ID</Button></TableHead>
-                  <TableHead><Button variant="ghost" onClick={() => handleSort("data")}>Data</Button></TableHead>
-                  <TableHead><Button variant="ghost" onClick={() => handleSort("tag")}>Tag</Button></TableHead>
-                  <TableHead><Button className="mr-4" variant="ghost" onClick={() => handleSort("description")}>Descrição</Button></TableHead>
-                  <TableHead className="text-right"><Button variant="ghost" onClick={() => handleSort("value")}>Valor</Button></TableHead>
-                  <TableHead className="w-[32px]"><span className="sr-only">Ações</span></TableHead>
+                  <TableHead>
+                    <Button variant="ghost" onClick={() => handleSort("id")}>
+                      ID
+                    </Button>
+                  </TableHead>
+                  <TableHead>
+                    <Button variant="ghost" onClick={() => handleSort("data")}>
+                      Data
+                    </Button>
+                  </TableHead>
+                  <TableHead>
+                    <Button variant="ghost" onClick={() => handleSort("tag")}>
+                      Tag
+                    </Button>
+                  </TableHead>
+                  <TableHead>
+                    <Button className="mr-4" variant="ghost" onClick={() => handleSort("description")}>
+                      Descrição
+                    </Button>
+                  </TableHead>
+                  <TableHead className="text-right">
+                    <Button variant="ghost" onClick={() => handleSort("value")}>
+                      Valor
+                    </Button>
+                  </TableHead>
+                  <TableHead className="w-[32px]">
+                    <span className="sr-only">Ações</span>
+                  </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {currentPageData.map((item) => (
-                  <TableRow key={item.id}>
-                    <TableCell className="font-medium">{item.id}</TableCell>
-                    <TableCell className="font-medium">{item.data}</TableCell>
-                    <TableCell><Badge variant={item.tagColor}>{item.tag}</Badge></TableCell>
-                    <TableCell>{item.description}</TableCell>
-                    <TableCell className="text-right">R$ {item.value.toFixed(2)}</TableCell>
-                    <TableCell>
+                  <TableRow key={item.id} className="flex flex-col md:table-row mb-4 md:mb-0 border-b md:border-none">
+                    <TableCell className="font-medium flex justify-between md:table-cell">
+                      <span className="md:hidden">ID</span>
+                      {item.id}
+                    </TableCell>
+                    <TableCell className="font-medium flex justify-between md:table-cell">
+                      <span className="md:hidden">Data</span>
+                      {item.data}
+                    </TableCell>
+                    <TableCell className="flex justify-between md:table-cell">
+                      <span className="md:hidden">Tag</span>
+                      <Badge variant={item.tagColor}>{item.tag}</Badge>
+                    </TableCell>
+                    <TableCell className="flex justify-between md:table-cell">
+                      <span className="md:hidden">Descrição</span>
+                      {item.description}
+                    </TableCell>
+                    <TableCell className="text-right flex justify-between md:table-cell">
+                      <span className="md:hidden">Valor</span>
+                      R$ {item.value.toFixed(2)}
+                    </TableCell>
+                    <TableCell className="flex justify-end md:table-cell">
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                           <Button aria-haspopup="true" size="icon" variant="ghost">
@@ -163,11 +201,32 @@ export default function DataTable({ data }: DataTableProps) {
             </Table>
           </div>
 
-          <div className="flex justify-end gap-3 items-center mt-4">
-            <span>Página {page} de {totalPages}</span>
-            <Button variant="outline" onClick={() => handlePageChange(page - 1)} disabled={page === 1}><lucide.MoveLeft /></Button>
-            <Button variant="outline" onClick={() => handlePageChange(page + 1)} disabled={page === totalPages} ><lucide.MoveRight /></Button>
-          </div>
+          <section className={sty.containerEnd}>
+            <div className="flex justify-between items-center gap-2 mt-4 md:mt-4 w-full flex-wrap md:flex-nowrap">
+              <span className="text-center md:text-right w-auto mb-2 md:mb-0">
+                Página {page} de {totalPages}
+              </span>
+              <div className="flex items-center gap-2">
+                <Button
+                  className="w-auto"
+                  variant="outline"
+                  onClick={() => handlePageChange(page - 1)}
+                  disabled={page === 1}
+                >
+                  <lucide.MoveLeft />
+                </Button>
+                <Button
+                  className="w-auto"
+                  variant="outline"
+                  onClick={() => handlePageChange(page + 1)}
+                  disabled={page === totalPages}
+                >
+                  <lucide.MoveRight />
+                </Button>
+              </div>
+            </div>
+          </section>
+
         </div>
       </div>
     </>
