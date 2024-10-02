@@ -64,20 +64,7 @@ export default function Home() {
 
   return (
     <>
-      <TitleRoute title="Home" />
-      <div className="fixed top-0 right-0 p-5">
-        <Button onClick={() => setOpen(true)}>Criar lembrete</Button>
-      </div>
-
-      <CreateForm
-        title="Criar Lembrete"
-        description="Para não esquecer nada, use o lembrete"
-        setDialogOpen={setOpen}
-        dialogOpen={open}
-        inputField={inputField}
-      />
-
-      <div className="fixed bottom-4 gap-3 right-4 max-h-200 w-80 overflow-y-auto">
+        <div className="fixed bottom-4 gap-3 right-4 max-h-200 w-80 overflow-y-auto">
         <Reminder
           reminders={remindersData.map((reminder, index) => ({
             ...reminder,
@@ -86,17 +73,6 @@ export default function Home() {
           }))}
         />
       </div>
-
-      {selectedReminder && (
-        <EditForm
-          dialogOpen={editOpen}
-          setDialogOpen={setEditOpen}
-          title="Editar lembrete"
-          description="Edite os detalhes do lembrete"
-          inputFields={editField}
-          selectArray={remindersData}
-        />
-      )}
     </>
   )
 }

@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { useState } from "react"
+import { useState, type SetStateAction } from "react"
 import { Popover } from "@radix-ui/react-popover"
 export default function finance() {
     const [popOver, setPopOver] = useState(false)
@@ -29,13 +29,14 @@ export default function finance() {
         setOpenEdit(true)
     }
 
-const saidas = [
-    {
-        label: "carro",
-        value: "500"
-    }
-]
+    const [selectedSaidas, setSelectedSaidas] = useState<string>("")
 
+    const saidas = [
+        {
+            label: "carro",
+            value: "500"
+        }
+    ]
 
     return (
         <>
@@ -76,6 +77,7 @@ const saidas = [
                                     openDialog={openEdit}
                                     setDialogOpen={setOpenEdit}
                                     Saidas={saidas}
+                                    setSelectedSaidas={setSelectedSaidas}
                                 />
                             </div>
                         </CardContent>

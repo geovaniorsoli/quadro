@@ -40,7 +40,7 @@ interface EditFixedFormProps {
   setDialogOpen: Dispatch<SetStateAction<boolean>>,
   Saidas: Saidas[], 
   selectedSaidas?: string, 
-  setSelectedSaidas?: Dispatch<SetStateAction<string>>, 
+  setSelectedSaidas: Dispatch<SetStateAction<string>>, 
 }
 
 export default function EditFixedForm({

@@ -37,8 +37,11 @@ interface InputField {
 }
 
 interface SelectArray {
+    content: string
     value: string
     selectLabel: string
+    price: number;
+    date: string
 }
 
 interface PopoverProps {
