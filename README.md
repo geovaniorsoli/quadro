@@ -1,5 +1,9 @@
 # Quadro
 
+## Acesse
+<a href="https://quadro-six.vercel.app/"> Quadro landing </a>
+<a href="https://quadro-sys.vercel.app/"> Quadro System </a>  
+
 ## Descrição
 
 O Sistema de Gerenciamento de Finanças é uma aplicação desenvolvida como parte de um projeto de faculdade, focada em ajudar usuários a gerenciar suas finanças de forma eficiente. A plataforma permite a colaboração em equipe, oferecendo funcionalidades que facilitam o controle financeiro conjunto. Além disso, o sistema conta com dashboards intuitivos, que oferecem uma visão clara e detalhada das finanças, auxiliando na tomada de decisões informadas.
