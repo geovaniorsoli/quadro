@@ -25,8 +25,8 @@ export default function index() {
   return (
     <>
       <TitleRoute title="Logar-se" />
-      <div className="flex align-center justify-center">
-        <Card className="w-[500px]">
+      <div className="flex items-center justify-center px-4 md:px-0">
+                <Card className="w-full max-w-[500px] p-4 md:p-0">
           <CardHeader>
             <CardTitle>Olá de volta</CardTitle>
             <CardDescription>Acesse o quadro</CardDescription>
