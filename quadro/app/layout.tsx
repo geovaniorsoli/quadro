@@ -5,7 +5,6 @@ import "./globals.css";
 import ClientLayout from "@/components/clientComponent";
 const inter = Inter({ subsets: ["latin"] });
 import Head from "next/head";
-import { Toaster } from 'sonner'
 
 export const metadata: Metadata = {
   title: "Quadro",
@@ -36,7 +35,6 @@ export default function RootLayout({
           disableTransitionOnChange>
           <ClientLayout>
             {children}
-            <Toaster theme="system" richColors={true} closeButton={true} visibleToasts={3} />
           </ClientLayout>
         </ThemeProvider>
       </body>

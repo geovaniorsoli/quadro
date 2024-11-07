@@ -16,7 +16,6 @@ import TitleRoute from "@/components/titleRoute"
 import * as lucide from "lucide-react"
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
-import { toast } from 'sonner'
 
 export default function Index() {
   const router = useRouter()
@@ -60,20 +59,17 @@ export default function Index() {
       if (!response.ok) {
         const erroMSG = await response.text()
         setError(erroMSG)
-        toast.error("Usuário não existe")
         setLoading(false)
         return
       }
 
       const data = await response.json()
       localStorage.setItem("token", data.token)
-      toast.success("Autenticado com sucesso")
 
       router.push("/home")
     } catch (err) {
       console.log(err)
       setError("Erro de request")
-      toast.error("Erro na requisição")
     } finally {
       setLoading(false)
     }
@@ -148,3 +144,4 @@ export default function Index() {
     </>
   )
 }
+  
