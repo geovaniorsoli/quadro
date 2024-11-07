@@ -33,14 +33,7 @@ export default function Nav() {
                     <img className="h-6 w-6" />
                     <span className="ml-2 text-lg font-medium">Quadro.</span>
                 </Link>
-                <nav className="hidden md:flex items-center space-x-4">
-                    <Link href="/" className="text-sm font-medium hover:underline" prefetch={false}>
-                        Home
-                    </Link>
-                    <Link href="#" className="text-sm font-medium hover:underline" prefetch={false}>
-                        Sobre
-                    </Link>
-                </nav>
+
             </div>
             <div className="flex items-center space-x-2">
                 <Button className="hidden md:block" asChild variant="outline">

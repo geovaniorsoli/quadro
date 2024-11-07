@@ -33,45 +33,82 @@ export default function home() {
         <main className="flex-1">
           <section className="py-12 md:py-20">
             <div className="container mx-auto px-4 md:px-6">
-              <h1 className="text-3xl md:text-4xl font-bold mb-4">Organize como melhor desejar</h1>
-              <p className="text-muted-foreground mb-8">
-                o Quadro é bem amplo a diferentes perfils de pessoas podendo atendener qualquer necessidade
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div className="bg-muted rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold mb-2">Movimentos</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et expedita placeat sit nam totam autem voluptatum eos necessitatibus enim debitis repudiandae impedit, nesciunt odit velit maiores quaerat ipsa facere! Aliquam.
-                  </p>
+              <h2 className="text-3xl font-bold mb-8">Conheça mais</h2>
+              <div className="space-y-8">
+                <div className="text-center">
+                  <img src="img/dashboard.png" alt="Funcionalidade 1" className="w-full h-full object-cover rounded-lg mb-4" />
+                  <h3 className="text-lg font-semibold">Relatórios</h3>
+                  <p className="text-muted-foreground">Relatórios detalhados para melhor análise.</p>
                 </div>
-                <div className="bg-muted rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold mb-2">Dashboards</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam incidunt, architecto iste nisi, porro ipsa quaerat repudiandae assumenda consectetur voluptatibus, magni velit aspernatur quos quidem quasi voluptatum qui est quibusdam.
-                  </p>
+                <div className="text-center">
+                  <img src="img/extrato.png" alt="Funcionalidade 2" className="w-full h-full object-cover rounded-lg mb-4" />
+                  <h3 className="text-lg font-semibold">Contas e Faturas</h3>
+                  <p className="text-muted-foreground">Gerencie suas contas e faturas em um só lugar.</p>
                 </div>
-                <div className="bg-muted rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold mb-2">Metas</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat iure culpa nesciunt cupiditate! Numquam non, iste blanditiis voluptatum quo sit a, velit ratione officia porro commodi sint consequatur molestias nostrum?
-                  </p>
+                <div className="text-center">
+                  <img src="img/cadastro.png" alt="Funcionalidade 3" className="w-full h-full object-cover rounded-lg mb-4" />
+                  <h3 className="text-lg font-semibold">Planejamento</h3>
+                  <p className="text-muted-foreground">Planeje seus próximos passos financeiros.</p>
                 </div>
-                <div className="bg-muted rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold mb-2">Ambiente colaborativo</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem, eligendi. Nam quae recusandae atque accusantium quisquam saepe sequi odit id. Voluptatibus magni maiores nihil eos similique alias reprehenderit velit fugiat.
-                  </p>
+                <div className="text-center">
+                  <img src="img/ia.png" alt="Funcionalidade 4" className="w-full h-full object-cover rounded-lg mb-4" />
+                  <h3 className="text-lg font-semibold">Análises</h3>
+                  <p className="text-muted-foreground">Analise tendências e otimize sua gestão com IA.</p>
                 </div>
               </div>
             </div>
           </section>
+
+
+          <section className="py-12 md:py-20">
+  <div className="container mx-auto px-4 md:px-6">
+    <h1 className="text-3xl md:text-4xl font-bold mb-4">Organize como melhor desejar</h1>
+    <p className="text-muted-foreground mb-8">
+      Quadro é um sistema de gestão financeira projetado para atender diferentes perfis de usuários, oferecendo tudo o que você precisa para controlar suas finanças em um só lugar.
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="bg-muted rounded-lg p-6 shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Movimentos</h3>
+        <p className="text-muted-foreground mb-4">
+          Acompanhe suas receitas e despesas em tempo real, garantindo uma visão clara dos seus movimentos financeiros.
+        </p>
+      </div>
+      <div className="bg-muted rounded-lg p-6 shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Dashboards</h3>
+        <p className="text-muted-foreground mb-4">
+          Visualize suas finanças de forma intuitiva com dashboards interativos, que ajudam a entender seu fluxo de caixa, despesas e muito mais.
+        </p>
+      </div>
+      <div className="bg-muted rounded-lg p-6 shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Previsão por IA</h3>
+        <p className="text-muted-foreground mb-4">
+          Nossa inteligência artificial analisa seus dados financeiros para prever tendências e ajudar você a planejar melhor seu futuro financeiro.
+        </p>
+      </div>
+      <div className="bg-muted rounded-lg p-6 shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Metas</h3>
+        <p className="text-muted-foreground mb-4">
+          Defina objetivos financeiros e acompanhe seu progresso para garantir que você está no caminho certo para alcançar suas metas.
+        </p>
+      </div>
+      <div className="bg-muted rounded-lg p-6 shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Ambiente Colaborativo</h3>
+        <p className="text-muted-foreground mb-4">
+          Colabore com sua equipe ou familiares para organizar as finanças coletivamente e tomar decisões de forma integrada.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
         </main>
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Nosso time</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Lorem ipsum dolor sit amet.
+                Nosso time Quadro
               </p>
             </div>
             <div className="grid gap-6 py-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -102,7 +139,7 @@ export default function home() {
                 </Avatar>
                 <div className="text-center">
                   <p className="text-sm font-medium">Ana Missio</p>
-                  <p className="text-sm text-muted-foreground">Document</p>
+                  <p className="text-sm text-muted-foreground">Product</p>
                 </div>
               </div>
               <div className="flex flex-col items-center gap-2">
@@ -111,8 +148,8 @@ export default function home() {
                   <AvatarFallback>AA</AvatarFallback>
                 </Avatar>
                 <div className="text-center">
-                  <p className="text-sm font-medium">Arthur arujo</p>
-                  <p className="text-sm text-muted-foreground">...</p>
+                  <p className="text-sm font-medium">Arthur Araujo</p>
+                  <p className="text-sm text-muted-foreground">Stakeholder</p>
                 </div>
               </div>
             </div>
@@ -122,14 +159,8 @@ export default function home() {
           <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
             <p>&copy; 2024 Quadro.</p>
             <nav className="flex items-center space-x-4">
-              <Link href="#" className="hover:underline" prefetch={false}>
-                Cadastrar
-              </Link>
-              <Link href="#" className="hover:underline" prefetch={false}>
-                Entrar
-              </Link>
-              <Link href="#" className="hover:underline" prefetch={false}>
-                Contact
+              <Link href=" https://www.instagram.com/quadro_company " className="hover:underline" prefetch={false}>
+                Instagram
               </Link>
             </nav>
           </div>
